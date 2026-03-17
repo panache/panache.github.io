@@ -1,0 +1,135 @@
+/* ─────────────────────────────────────────
+   Velocity Fund — home.css
+   Index page only: hero, ticker, portfolio
+   grid, marquee, shell prompt
+───────────────────────────────────────── */
+
+/* HERO */
+.hero {
+  min-height: 100vh; padding: 0 52px 90px;
+  display: flex; flex-direction: column; justify-content: center;
+  padding-top: 60px;
+  position: relative; overflow: hidden;
+}
+.hero-grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 64px 64px; opacity: .3; pointer-events: none;
+}
+.hero-glow {
+  position: absolute; top: -200px; right: -200px;
+  width: 700px; height: 700px;
+  background: radial-gradient(circle, rgba(245,230,66,.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* SHELL PROMPT */
+.shell-prompt {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px; line-height: 1; margin-bottom: 36px;
+  opacity: 0; animation: fadeUp .6s .2s forwards;
+  display: inline-flex; align-items: center; flex-wrap: wrap; gap: 0;
+  background: rgba(14,14,18,0.85);
+  border: 1px solid var(--border);
+  padding: 10px 16px; width: fit-content;
+  position: relative; z-index: 1;
+}
+.shell-prompt::before {
+  content: '● ● ●';
+  position: absolute; top: -20px; left: 0;
+  font-size: 8px; letter-spacing: 4px; color: var(--border);
+}
+.shell-ps1-user   { color: var(--green); }
+.shell-ps1-at     { color: var(--muted); }
+.shell-ps1-host   { color: var(--yellow); }
+.shell-ps1-colon  { color: var(--muted); }
+.shell-ps1-path   { color: var(--blue); }
+.shell-ps1-dollar { color: var(--muted); margin: 0 8px; }
+.shell-ps1-cmd    { color: var(--text); }
+.shell-ps1-flag   { color: var(--green); }
+.shell-ps1-arg    { color: #e0af68; }
+.shell-cursor-block {
+  display: inline-block; width: 8px; height: 14px;
+  background: var(--yellow); margin-left: 3px; vertical-align: middle;
+  animation: blink 1.1s step-end infinite;
+}
+@keyframes blink { 0%,100% { opacity:1 } 50% { opacity:0 } }
+
+/* HERO HEADLINE */
+.hero h1 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(64px, 7vw, 96px);
+  font-weight: 800; line-height: 1.0; letter-spacing: -.025em;
+  max-width: 920px;
+  opacity: 0; animation: fadeUp .8s .4s forwards;
+  position: relative; z-index: 1;
+}
+.hero h1 em { font-style: normal; color: var(--yellow); }
+
+.hero-sub {
+  margin-top: 28px; position: relative; z-index: 1;
+  font-size: 16px; color: var(--mid); line-height: 1.7; max-width: 520px;
+  opacity: 0; animation: fadeUp .8s .6s forwards;
+}
+.hero-actions {
+  display: flex; gap: 16px; margin-top: 44px;
+  opacity: 0; animation: fadeUp .8s .8s forwards;
+  position: relative; z-index: 1;
+}
+
+/* HERO STATS */
+.hero-stats {
+  display: flex; gap: 64px; margin-top: 72px;
+  padding-top: 40px; border-top: 1px solid var(--border);
+  opacity: 0; animation: fadeUp .8s 1s forwards;
+  position: relative; z-index: 1;
+}
+.stat-num   { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 36px; font-weight: 800; color: var(--yellow); letter-spacing: -.03em; }
+.stat-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--mid); letter-spacing: .08em; text-transform: uppercase; margin-top: 6px; line-height: 1.65; }
+
+/* TICKER */
+.ticker {
+  border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+  padding: 13px 0; overflow: hidden; background: var(--surface);
+}
+.ticker-inner { display: flex; gap: 48px; animation: scroll 32s linear infinite; white-space: nowrap; }
+.ticker-item  { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: .15em; text-transform: uppercase; color: var(--mid); flex-shrink: 0; }
+.ticker-item span { color: var(--yellow); margin-right: 6px; }
+@keyframes scroll { from { transform: translateX(0) } to { transform: translateX(-50%) } }
+
+/* PORTFOLIO GRID (home) */
+.portfolio-grid {
+  display: grid; grid-template-columns: repeat(2,1fr);
+  gap: 1px; background: var(--border); border: 1px solid var(--border);
+  margin-top: 56px;
+}
+.portfolio-card {
+  background: var(--black); padding: 44px 40px;
+  transition: background .2s; position: relative; overflow: hidden;
+}
+.portfolio-card::before {
+  content: ''; position: absolute; top: 0; left: 0;
+  width: 2px; height: 0; background: var(--yellow); transition: height .3s;
+}
+.portfolio-card:hover::before { height: 100%; }
+.portfolio-card:hover { background: var(--surface); }
+.co-name    { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 22px; font-weight: 800; letter-spacing: -.02em; margin-bottom: 8px; }
+.co-founders { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--mid); letter-spacing: .04em; margin-bottom: 18px; line-height: 1.7; }
+.co-desc    { font-size: 13px; color: var(--mid); line-height: 1.75; }
+.co-outcome { margin-top: 20px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--green); letter-spacing: .03em; line-height: 1.6; }
+.co-outcome::before { content: '→ '; }
+
+/* MARQUEE */
+.marquee-divider { overflow: hidden; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 18px 0; }
+.marquee-inner   { display: flex; gap: 40px; animation: scroll 22s linear infinite; }
+.marquee-word    { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 72px; font-weight: 800; letter-spacing: -.03em; color: transparent; -webkit-text-stroke: 1px var(--borderB); white-space: nowrap; flex-shrink: 0; }
+.marquee-word.filled { -webkit-text-stroke: none; color: var(--yellow); }
+
+@media (max-width: 900px) {
+  .hero { padding: 80px 20px 60px; }
+  .hero h1 { font-size: 54px; }
+  .hero-stats { gap: 32px; flex-wrap: wrap; }
+  .portfolio-grid { grid-template-columns: 1fr; }
+}

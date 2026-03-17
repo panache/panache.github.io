@@ -1,324 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Velocity Fund — Canada's Pre-Seed Fund for Founders Who Move Fast</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --black:   #060608;
-    --surface: #0e0e12;
-    --border:  #1c1c22;
-    --borderB: #2a2a35;
-    --yellow:  #f5e642;
-    --green:   #5af5a0;
-    --blue:    #7aa2f7;
-    --text:    #dddde8;
-    --muted:   #7a7a8c;
-    --mid:     #9999b0;
-  }
-
-  * { margin:0; padding:0; box-sizing:border-box; }
-  html { scroll-behavior:smooth; }
-
-  body {
-    background: var(--black);
-    color: var(--text);
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 15px;
-    line-height: 1.6;
-    overflow-x: hidden;
-    cursor: none;
-  }
-
-  /* scanline overlay */
-  body::after {
-    content:''; position:fixed; inset:0;
-    background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.045) 2px, rgba(0,0,0,0.045) 4px);
-    pointer-events:none; z-index:100;
-  }
-
-  /* cursor */
-  .cursor      { position:fixed; width:8px; height:8px; background:var(--yellow); pointer-events:none; z-index:9999; transform:translate(-50%,-50%); }
-  .cursor-ring { position:fixed; width:32px; height:32px; border:1px solid var(--yellow); opacity:.35; pointer-events:none; z-index:9998; transform:translate(-50%,-50%); transition:all .12s ease; }
-
-  /* ── NAV ── */
-  nav {
-    position:fixed; top:0; left:0; right:0; z-index:50;
-    display:flex; justify-content:space-between; align-items:center;
-    padding:0 52px; height:60px;
-    border-bottom:1px solid var(--border);
-    background:rgba(6,6,8,.96); backdrop-filter:blur(16px);
-  }
-  .nav-logo {
-    font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:17px;
-    letter-spacing:-.02em; color:var(--text); text-decoration:none;
-  }
-  .nav-logo span { color:var(--yellow); }
-  nav ul { list-style:none; display:flex; gap:36px; }
-  nav a  { font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--mid); text-decoration:none; transition:color .2s; }
-  nav a:hover { color:var(--yellow); }
-  .nav-cta { border:1px solid var(--yellow) !important; color:var(--yellow) !important; padding:7px 18px; }
-  .nav-cta:hover { background:var(--yellow) !important; color:var(--black) !important; }
-
-  /* ── HERO ── */
-  .hero {
-    min-height:100vh; padding:0 52px 90px;
-    display:flex; flex-direction:column; justify-content:center;
-    padding-top:60px;
-    position:relative; overflow:hidden;
-  }
-  .hero-grid {
-    position:absolute; inset:0;
-    background-image:
-      linear-gradient(var(--border) 1px, transparent 1px),
-      linear-gradient(90deg, var(--border) 1px, transparent 1px);
-    background-size:64px 64px; opacity:.3;
-    pointer-events:none;
-  }
-  .hero-glow {
-    position:absolute; top:-200px; right:-200px; width:700px; height:700px;
-    background:radial-gradient(circle, rgba(245,230,66,.05) 0%, transparent 70%);
-    pointer-events:none;
-  }
-
-  /* ── SHELL PROMPT ── */
-  .shell-prompt {
-    font-family:'JetBrains Mono', monospace;
-    font-size:13px; font-weight:400; line-height:1;
-    margin-bottom:36px;
-    opacity:0; animation:fadeUp .6s .2s forwards;
-    display:inline-flex; align-items:center; flex-wrap:wrap;
-    gap:0;
-    background: rgba(14,14,18,0.85);
-    border: 1px solid var(--border);
-    padding: 10px 16px;
-    width: fit-content;
-    position: relative;
-    z-index: 1;
-  }
-  /* top-left terminal dots */
-  .shell-prompt::before {
-    content: '● ● ●';
-    position: absolute; top: -20px; left: 0;
-    font-size: 8px; letter-spacing: 4px;
-    color: var(--border);
-  }
-  .shell-ps1-user   { color: var(--green); }
-  .shell-ps1-at     { color: var(--muted); }
-  .shell-ps1-host   { color: var(--yellow); }
-  .shell-ps1-colon  { color: var(--muted); }
-  .shell-ps1-path   { color: var(--blue); }
-  .shell-ps1-dollar { color: var(--muted); margin: 0 8px; }
-  .shell-ps1-cmd    { color: var(--text); }
-  .shell-ps1-flag   { color: var(--green); }
-  .shell-ps1-arg    { color: #e0af68; }   /* amber — token colour */
-  .shell-cursor-block {
-    display:inline-block; width:8px; height:14px;
-    background:var(--yellow); margin-left:3px; vertical-align:middle;
-    animation:blink 1.1s step-end infinite;
-  }
-  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
-
-  /* ── HEADLINE — no clamp below 64px ── */
-  .hero h1 {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: clamp(64px, 7vw, 96px);
-    font-weight: 800;
-    line-height: 1.0;
-    letter-spacing: -0.025em;
-    max-width: 920px;
-    opacity:0; animation:fadeUp .8s .4s forwards;
-    position: relative; z-index: 1;
-  }
-  .hero h1 em { font-style:normal; color:var(--yellow); }
-
-  .hero-sub {
-    margin-top:28px; position:relative; z-index:1;
-    font-size:16px; font-weight:400;
-    color:var(--mid); line-height:1.7; max-width:520px;
-    opacity:0; animation:fadeUp .8s .6s forwards;
-  }
-
-  .hero-actions {
-    display:flex; gap:16px; margin-top:44px;
-    opacity:0; animation:fadeUp .8s .8s forwards;
-    position:relative; z-index:1;
-  }
-  .btn-primary {
-    background:var(--yellow); color:var(--black);
-    font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700;
-    letter-spacing:.1em; text-transform:uppercase; padding:15px 30px;
-    border:none; text-decoration:none; cursor:none; display:inline-block;
-    transition:transform .15s, box-shadow .15s;
-  }
-  .btn-primary:hover { transform:translate(-2px,-2px); box-shadow:4px 4px 0 rgba(245,230,66,.3); }
-  .btn-ghost {
-    background:transparent; color:var(--text);
-    font-family:'JetBrains Mono',monospace; font-size:11px;
-    letter-spacing:.1em; text-transform:uppercase; padding:15px 30px;
-    border:1px solid var(--borderB); text-decoration:none; cursor:none; display:inline-block;
-    transition:border-color .2s, color .2s;
-  }
-  .btn-ghost:hover { border-color:var(--muted); color:var(--yellow); }
-
-  .hero-stats {
-    display:flex; gap:64px; margin-top:72px;
-    padding-top:40px; border-top:1px solid var(--border);
-    opacity:0; animation:fadeUp .8s 1s forwards;
-    position:relative; z-index:1;
-  }
-  .stat-num   { font-family:'Plus Jakarta Sans',sans-serif; font-size:36px; font-weight:800; color:var(--yellow); letter-spacing:-.03em; }
-  .stat-label { font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--mid); letter-spacing:.08em; text-transform:uppercase; margin-top:6px; line-height:1.65; }
-
-  /* ── TICKER ── */
-  .ticker { border-top:1px solid var(--border); border-bottom:1px solid var(--border); padding:13px 0; overflow:hidden; background:var(--surface); }
-  .ticker-inner { display:flex; gap:48px; animation:scroll 32s linear infinite; white-space:nowrap; }
-  .ticker-item  { font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.15em; text-transform:uppercase; color:var(--mid); flex-shrink:0; }
-  .ticker-item span { color:var(--yellow); margin-right:6px; }
-  @keyframes scroll { from{transform:translateX(0)} to{transform:translateX(-50%)} }
-
-  /* ── SECTIONS ── */
-  section { padding:110px 52px; position:relative; }
-  .section-label {
-    font-family:'JetBrains Mono',monospace;
-    font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:var(--yellow);
-    margin-bottom:48px; display:flex; align-items:center; gap:14px;
-  }
-  .section-label::before { content:''; display:inline-block; width:24px; height:1px; background:var(--yellow); }
-  .section-h2 {
-    font-family:'Plus Jakarta Sans',sans-serif;
-    font-size: clamp(36px, 3.6vw, 52px);
-    font-weight:800; letter-spacing:-.025em; line-height:1.05;
-  }
-
-  /* ── PORTFOLIO GRID ── */
-  .portfolio-grid {
-    display:grid; grid-template-columns:repeat(2,1fr);
-    gap:1px; background:var(--border); border:1px solid var(--border); margin-top:56px;
-  }
-  .portfolio-card {
-    background:var(--black); padding:44px 40px;
-    transition:background .2s; position:relative; overflow:hidden;
-  }
-  .portfolio-card::before {
-    content:''; position:absolute; top:0; left:0; width:2px; height:0;
-    background:var(--yellow); transition:height .3s;
-  }
-  .portfolio-card:hover::before { height:100%; }
-  .portfolio-card:hover { background:var(--surface); }
-
-  .co-name { font-family:'Plus Jakarta Sans',sans-serif; font-size:22px; font-weight:800; letter-spacing:-.02em; margin-bottom:8px; }
-  .co-founders {
-    font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--mid);
-    letter-spacing:.04em; margin-bottom:18px; line-height:1.7;
-  }
-  .co-founders span { color:var(--mid); }
-  .co-desc    { font-size:13px; font-weight:400; color:var(--mid); line-height:1.75; }
-  .co-outcome {
-    margin-top:20px; font-family:'JetBrains Mono',monospace;
-    font-size:11px; color:var(--green); letter-spacing:.03em; line-height:1.6;
-  }
-  .co-outcome::before { content:'→ '; }
-
-  /* ── HOW WE HELP ── */
-  .help-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--border); border:1px solid var(--border); margin-top:56px; }
-  .help-card  { background:var(--black); padding:52px 44px; transition:background .2s; }
-  .help-card:hover { background:var(--surface); }
-  .help-num   { font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--mid); letter-spacing:.15em; margin-bottom:22px; }
-  .help-title { font-family:'Plus Jakarta Sans',sans-serif; font-size:21px; font-weight:800; letter-spacing:-.02em; line-height:1.2; margin-bottom:14px; }
-  .help-body  { font-size:13px; font-weight:400; color:var(--mid); line-height:1.9; }
-
-  /* ── TESTIMONIALS ── */
-  .testimonials-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--border); border:1px solid var(--border); margin-top:56px; }
-  .testimonial-card  { background:var(--black); padding:48px 44px; transition:background .2s; }
-  .testimonial-card:hover { background:var(--surface); }
-  .quote-mark  { font-family:'Plus Jakarta Sans',sans-serif; font-size:56px; font-weight:800; color:var(--yellow); line-height:1; margin-bottom:14px; opacity:.5; }
-  .quote-text  { font-size:14px; font-weight:400; font-style:italic; color:var(--text); line-height:1.8; margin-bottom:24px; }
-  .quote-attr  { font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--mid); letter-spacing:.06em; line-height:1.7; }
-  .quote-attr strong { font-family:'Plus Jakarta Sans',sans-serif; font-size:12px; font-weight:700; color:var(--yellow); font-style:normal; display:block; margin-bottom:2px; }
-
-  /* ── THESIS ── */
-  .thesis-split { display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--border); border:1px solid var(--border); margin-top:56px; }
-  .thesis-panel { background:var(--black); padding:68px 56px; }
-  .thesis-panel.active { background:var(--surface); }
-  .thesis-panel h3 { font-family:'Plus Jakarta Sans',sans-serif; font-size:26px; font-weight:800; letter-spacing:-.025em; line-height:1.1; margin-bottom:20px; }
-  .thesis-panel h3 em { font-style:normal; color:var(--yellow); }
-  .thesis-panel p  { font-size:13px; color:var(--mid); line-height:1.95; }
-  .thesis-tag { display:inline-block; margin-top:30px; font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.12em; text-transform:uppercase; border:1px solid var(--borderB); padding:6px 14px; color:var(--mid); }
-
-  /* ── SPEED ── */
-  .speed-container { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; margin-top:56px; }
-  .speed-left h2 { font-family:'Plus Jakarta Sans',sans-serif; font-size:clamp(44px,4.5vw,62px); font-weight:800; line-height:1.0; letter-spacing:-.03em; margin-bottom:24px; }
-  .speed-left h2 em { font-style:normal; color:var(--yellow); }
-  .speed-left p  { font-size:13px; color:var(--mid); line-height:1.9; max-width:400px; }
-  .speed-note    { font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--muted); margin-top:20px; line-height:1.7; }
-  .timeline      { padding-left:32px; border-left:1px solid var(--border); }
-  .timeline-item { padding:22px 0; border-bottom:1px solid var(--border); }
-  .timeline-item:last-child { border-bottom:none; }
-  .t-day   { font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--yellow); letter-spacing:.1em; text-transform:uppercase; margin-bottom:6px; }
-  .t-label { font-family:'Plus Jakarta Sans',sans-serif; font-size:15px; font-weight:600; color:var(--text); }
-  .t-note  { font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--mid); margin-top:4px; }
-
-  /* ── TEAM ── */
-  .team-grid { display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--border); border:1px solid var(--border); margin-top:56px; }
-  .team-card { background:var(--black); padding:56px; transition:background .2s; }
-  .team-card:hover { background:var(--surface); }
-  .team-name { font-family:'Plus Jakarta Sans',sans-serif; font-size:26px; font-weight:800; letter-spacing:-.025em; margin-bottom:4px; }
-  .team-role { font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--yellow); letter-spacing:.14em; text-transform:uppercase; margin-bottom:20px; }
-  .team-bio  { font-size:13px; color:var(--mid); line-height:1.85; }
-  .team-tags { display:flex; flex-wrap:wrap; gap:8px; margin-top:22px; }
-  .tag { font-family:'JetBrains Mono',monospace; font-size:9px; letter-spacing:.1em; text-transform:uppercase; border:1px solid var(--borderB); padding:4px 10px; color:var(--mid); }
-
-  /* ── MARQUEE ── */
-  .marquee-divider { overflow:hidden; border-top:1px solid var(--border); border-bottom:1px solid var(--border); padding:18px 0; }
-  .marquee-inner { display:flex; gap:40px; animation:scroll 22s linear infinite; }
-  .marquee-word { font-family:'Plus Jakarta Sans',sans-serif; font-size:72px; font-weight:800; letter-spacing:-.03em; color:transparent; -webkit-text-stroke:1px var(--borderB); white-space:nowrap; flex-shrink:0; }
-  .marquee-word.filled { -webkit-text-stroke:none; color:var(--yellow); }
-
-  /* ── CTA ── */
-  .cta-section { background:var(--yellow); padding:110px 52px; }
-  .cta-section h2 { font-family:'Plus Jakarta Sans',sans-serif; font-size:clamp(44px,6vw,78px); font-weight:800; color:var(--black); letter-spacing:-.04em; line-height:.95; max-width:720px; margin-bottom:48px; }
-  .btn-dark { background:var(--black); color:var(--yellow); font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; padding:16px 36px; border:none; text-decoration:none; cursor:none; display:inline-block; transition:transform .15s, box-shadow .15s; }
-  .btn-dark:hover { transform:translate(-2px,-2px); box-shadow:4px 4px 0 rgba(0,0,0,.25); }
-
-  /* ── FOOTER ── */
-  footer { padding:36px 52px; border-top:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; }
-  footer p { font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--mid); letter-spacing:.06em; }
-  footer a { color:var(--mid); text-decoration:none; transition:color .2s; }
-  footer a:hover { color:var(--yellow); }
-
-  /* ── UTILS ── */
-  @keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:none} }
-  .reveal { opacity:0; transform:translateY(28px); transition:opacity .7s ease, transform .7s ease; }
-  .reveal.visible { opacity:1; transform:none; }
-
-  @media (max-width:900px){
-    nav { padding:0 20px; }
-    nav ul { display:none; }
-    .hero, section { padding-left:24px; padding-right:24px; }
-    .hero h1 { font-size:54px; }
-    .portfolio-grid,.help-grid,.testimonials-grid,.thesis-split,.speed-container,.team-grid { grid-template-columns:1fr; }
-    .hero-stats { gap:32px; flex-wrap:wrap; }
-    .speed-container { gap:48px; }
-    footer { flex-direction:column; align-items:flex-start; }
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Velocity Fund — Canada's Pre-Seed Fund for Founders Who Move Fast</title>
+  <meta name="description" content="Velocity Fund backs pre-seed technical founders from the University of Waterloo and beyond. First cheque. Two-week decision. No circus.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/home.css">
 </head>
 <body>
 
 <div class="cursor" id="cursor"></div>
-<div class="cursor-ring" id="cursorRing"></div>
+<div class="cursor-ring" id="cursor-ring"></div>
 
-<!-- NAV -->
 <nav>
-  <a href="/" class="nav-logo">Velocity<span>Fund</span></a>
+  <a href="index.html" class="nav-logo">Velocity<span>Fund</span></a>
   <ul>
-    <li><a href="#portfolio">Portfolio</a></li>
-    <li><a href="#how">How We Help</a></li>
-    <li><a href="#team">Team</a></li>
+    <li><a href="portfolio.html">Portfolio</a></li>
+    <li><a href="how-we-help.html">How We Help</a></li>
+    <li><a href="team.html">Team</a></li>
     <li><a href="#apply" class="nav-cta">Apply</a></li>
   </ul>
 </nav>
@@ -327,29 +29,23 @@
 <section class="hero">
   <div class="hero-grid"></div>
   <div class="hero-glow"></div>
-
-  <!-- shell prompt -->
   <div class="shell-prompt">
     <span class="shell-ps1-user">akash</span><span class="shell-ps1-at">@</span><span class="shell-ps1-host">velocity.fund</span><span class="shell-ps1-colon">:</span><span class="shell-ps1-path">~/waterloo</span><span class="shell-ps1-dollar">$</span>&nbsp;<span class="shell-ps1-cmd">invest</span>&nbsp;<span class="shell-ps1-flag">--stage</span>&nbsp;<span class="shell-ps1-arg">pre-seed</span>&nbsp;<span class="shell-ps1-flag">--speed</span>&nbsp;<span class="shell-ps1-arg">"2 weeks"</span>&nbsp;<span class="shell-ps1-flag">--founders</span>&nbsp;<span class="shell-ps1-arg">"ambitious"</span><span class="shell-cursor-block"></span>
   </div>
-
   <h1>Canada's pre-seed fund<br>for founders who<br><em>move fast.</em></h1>
-
-  <p class="hero-sub">We back ambitious technical founders at the earliest stage. If you have strong conviction and early signal, we want to hear from you — before you think you're ready.</p>
-
+  <p class="hero-sub">We back technical founders from Waterloo and beyond — with a decision in two weeks, every time. No ambiguity. No circus.</p>
   <div class="hero-actions">
-    <a href="#apply" class="btn-primary">Tell Us About Your Company</a>
-    <a href="#portfolio" class="btn-ghost">See Our Portfolio</a>
+    <a href="#apply" class="btn-primary">Tell Us About Your Company →</a>
+    <a href="portfolio.html" class="btn-ghost">View Portfolio</a>
   </div>
-
   <div class="hero-stats">
     <div>
       <div class="stat-num">1 in 4</div>
-      <div class="stat-label">Canadian unicorn founders<br>graduated from Waterloo</div>
+      <div class="stat-label">Canadian unicorn founders<br>from Waterloo</div>
     </div>
     <div>
       <div class="stat-num">2 wks</div>
-      <div class="stat-label">From first meeting<br>to term sheet</div>
+      <div class="stat-label">First meeting<br>to term sheet</div>
     </div>
     <div>
       <div class="stat-num">74+</div>
@@ -361,72 +57,62 @@
 <!-- TICKER -->
 <div class="ticker">
   <div class="ticker-inner">
-    <span class="ticker-item"><span>→</span>Pre-Seed &amp; Seed</span>
-    <span class="ticker-item"><span>→</span>Core: $150k–$1M · Scout: $25k</span>
-    <span class="ticker-item"><span>→</span>Software · Deep Tech · Health Tech</span>
-    <span class="ticker-item"><span>→</span>Decision in 2 weeks, every time</span>
-    <span class="ticker-item"><span>→</span>Embedded in Velocity Incubator</span>
-    <span class="ticker-item"><span>→</span>Backed by UW Endowment Fund</span>
-    <span class="ticker-item"><span>→</span>Pre-Seed &amp; Seed</span>
-    <span class="ticker-item"><span>→</span>Core: $150k–$1M · Scout: $25k</span>
-    <span class="ticker-item"><span>→</span>Software · Deep Tech · Health Tech</span>
-    <span class="ticker-item"><span>→</span>Decision in 2 weeks, every time</span>
-    <span class="ticker-item"><span>→</span>Embedded in Velocity Incubator</span>
-    <span class="ticker-item"><span>→</span>Backed by UW Endowment Fund</span>
+    <span class="ticker-item"><span>▲</span> 2.19× TVPI — Fund I</span>
+    <span class="ticker-item"><span>▲</span> 20.2% IRR — Fund I</span>
+    <span class="ticker-item"><span>◆</span> Top Decile — Carta Q1 2025</span>
+    <span class="ticker-item"><span>▲</span> 16 markups / 29 investments</span>
+    <span class="ticker-item"><span>◆</span> Anchored by UW Endowment</span>
+    <span class="ticker-item"><span>▲</span> Fund II — $18M target</span>
+    <span class="ticker-item"><span>◆</span> First close $10M complete</span>
+    <span class="ticker-item"><span>▲</span> 2.19× TVPI — Fund I</span>
+    <span class="ticker-item"><span>▲</span> 20.2% IRR — Fund I</span>
+    <span class="ticker-item"><span>◆</span> Top Decile — Carta Q1 2025</span>
+    <span class="ticker-item"><span>▲</span> 16 markups / 29 investments</span>
+    <span class="ticker-item"><span>◆</span> Anchored by UW Endowment</span>
+    <span class="ticker-item"><span>▲</span> Fund II — $18M target</span>
+    <span class="ticker-item"><span>◆</span> First close $10M complete</span>
   </div>
 </div>
 
-<!-- PORTFOLIO -->
+<!-- PORTFOLIO HIGHLIGHTS -->
 <section id="portfolio">
   <div class="section-label">Portfolio</div>
   <h2 class="section-h2 reveal">Companies we've backed</h2>
   <div class="portfolio-grid reveal">
-
     <div class="portfolio-card">
       <div class="co-name">Scribenote</div>
-      <div class="co-founders">Ryan Gallagher · Dr. Katie Gallagher · Alina Pavel · Emily Merry</div>
-      <div class="co-desc">AI scribe for veterinarians. Ryan noticed his sister Katie — a small animal vet — working 2 hours of overtime every day on medical records. He shadowed her, then built the fix. Co-founded with Alina Pavel and Emily Merry. Seed led by a16z with Velocity participating.</div>
-      <div class="co-outcome">$8.2M raised. Built at Velocity Incubator. YC W23.</div>
+      <div class="co-founders">Ryan Gallagher · Alina Pavel · Katie Gallagher</div>
+      <div class="co-desc">AI scribe for veterinarians — turns audio from appointments into written medical records. Built because Katie, a vet, was working 2 hours of overtime every day on paperwork.</div>
+      <div class="co-outcome">7.8× markup on $25k scout cheque.</div>
     </div>
-
     <div class="portfolio-card">
       <div class="co-name">Ground News</div>
       <div class="co-founders">Harleen Kaur · Sukh Singh</div>
-      <div class="co-desc">News bias detection platform. Harleen, ex-NASA engineer on the New Horizons spacecraft mission and the youngest female VP at Rolls-Royce, co-founded with brother Sukh. Velocity Fund was their only seed investor.</div>
-      <div class="co-outcome">62.5× ARR growth in 4 years. 800k+ subscribers. Tim Cook recommended it.</div>
+      <div class="co-desc">News bias detection platform. Harleen, ex-NASA engineer and youngest female VP at Rolls-Royce. Velocity Fund was their only seed investor.</div>
+      <div class="co-outcome">62.5× ARR growth in 4 years. 800k+ subscribers.</div>
     </div>
-
     <div class="portfolio-card">
       <div class="co-name">MedMe Health</div>
       <div class="co-founders">Rui Su · Nick Hui · Purya Sarmadi</div>
-      <div class="co-desc">OS for pharmacies — automating clinical services so pharmacists can focus on patient care instead of admin. Built at Velocity Incubator by three UW founders. Joined YC (W21). Seed co-led by Microsoft and Graphite Ventures.</div>
-      <div class="co-outcome">4,000+ pharmacies. 25M+ patient services. Forbes 30 Under 30.</div>
+      <div class="co-desc">OS for pharmacies — automating clinical services so pharmacists can focus on patient care. Built at Velocity Incubator. YC W21. Seed co-led by Microsoft and Graphite Ventures.</div>
+      <div class="co-outcome">4,000+ pharmacies. 25M+ patient services.</div>
     </div>
-
     <div class="portfolio-card">
       <div class="co-name">Phoenix</div>
       <div class="co-founders">Founded inside Velocity Incubator</div>
-      <div class="co-desc">Canadian men's telehealth clinic making accessible, affordable health care a reality across Canada. Founded inside Velocity Incubator. Series A led by Valspring Capital.</div>
-      <div class="co-outcome">$50M raised. Scaling nationally.</div>
+      <div class="co-desc">Canadian telehealth clinic for sensitive lifestyle conditions. Founded inside Velocity Incubator. Series A led by Valspring Capital.</div>
+      <div class="co-outcome">$50M raised. 5.2× markup.</div>
     </div>
-
     <div class="portfolio-card">
       <div class="co-name">Page.</div>
-      <div class="co-founders">Velocity portfolio company</div>
+      <div class="co-founders">Ben Cox</div>
       <div class="co-desc">AI platform for government relations. Reached 7-figure ARR within 7 months of our investment — one of the fastest revenue ramps we've seen. Seed round from TwelveBelow.</div>
-      <div class="co-outcome">7-figure ARR in 7 months from our investment.</div>
+      <div class="co-outcome">7-figure ARR in 7 months.</div>
     </div>
-
     <div class="portfolio-card" style="display:flex;align-items:center;justify-content:center;flex-direction:column;gap:20px;min-height:220px;">
       <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:20px;font-weight:800;color:var(--mid);">+ 69 more companies</div>
-      <a href="https://velocity.fund/portfolio"
-        style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--yellow);border:1px solid var(--yellow);padding:10px 20px;text-decoration:none;transition:background .2s,color .2s;"
-        onmouseenter="this.style.background='var(--yellow)';this.style.color='var(--black)'"
-        onmouseleave="this.style.background='transparent';this.style.color='var(--yellow)'">
-        View Full Portfolio →
-      </a>
+      <a href="portfolio.html" class="btn-ghost" style="padding:10px 20px;font-size:10px;">View Full Portfolio →</a>
     </div>
-
   </div>
 </section>
 
@@ -442,162 +128,6 @@
   </div>
 </div>
 
-<!-- HOW WE HELP -->
-<section id="how">
-  <div class="section-label">How We Help</div>
-  <h2 class="section-h2 reveal">We built the fund we wished existed when we were founders.</h2>
-  <div class="help-grid reveal">
-
-    <div class="help-card">
-      <div class="help-num">01 // Capital</div>
-      <div class="help-title">The first cheque. Without the circus.</div>
-      <div class="help-body">Core cheques of $150k–$1M. Scout cheques of $25k for the very earliest signal. We lead rounds and take 5–7.5% ownership. Our investment committee meetings run on a fixed weekly cadence — you'll have a decision within two weeks of your first meeting. Every time.</div>
-    </div>
-
-    <div class="help-card">
-      <div class="help-num">02 // Network</div>
-      <div class="help-title">A world-class alumni network, activated.</div>
-      <div class="help-body">1 in 4 Canadian unicorn founders graduated from Waterloo. We're embedded at the centre of that ecosystem — inside Velocity Incubator, backed by the UW Endowment. Our LP base includes founders and operators from Instacart to Flutterwave to ApplyBoard. Your next customer or co-investor is probably already in our network.</div>
-    </div>
-
-    <div class="help-card">
-      <div class="help-num">03 // Fundraising</div>
-      <div class="help-title">We make your next raise easier.</div>
-      <div class="help-body">We've sat on both sides of the table. When it's time for your next round, we help you sharpen your narrative, prepare materials, and make warm introductions to the right funds. Our portfolio companies don't fundraise in the dark.</div>
-    </div>
-
-    <div class="help-card">
-      <div class="help-num">04 // Honesty</div>
-      <div class="help-title">Blunt feedback. The real answer.</div>
-      <div class="help-body">We tell you what we actually think — about your pricing, positioning, team, and narrative. Founders who work with us describe us as the investor they call when they want the real answer. We operate like a co-founder, not a board member.</div>
-    </div>
-
-  </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section style="padding-top:0;">
-  <div class="section-label">What Founders Say</div>
-  <div class="testimonials-grid reveal">
-
-    <div class="testimonial-card">
-      <div class="quote-mark">"</div>
-      <div class="quote-text">We received more valuable mentorship in one hour speaking with Akash than we did in four months from our advisors at one of the leading US biotech accelerators.</div>
-      <div class="quote-attr"><strong>Danielle Rose</strong>CEO · Ceragen · Velocity portfolio</div>
-    </div>
-
-    <div class="testimonial-card">
-      <div class="quote-mark">"</div>
-      <div class="quote-text">Ross has consistently been the first person I'd seek advice from for the toughest decisions and is often the first person I refer friends to when they're starting up.</div>
-      <div class="quote-attr"><strong>Rohit Rajan</strong>CEO · Dolphyn · Velocity portfolio</div>
-    </div>
-
-    <div class="testimonial-card">
-      <div class="quote-mark">"</div>
-      <div class="quote-text">Float wouldn't exist without Velocity. Full stop. The network of mentors and founders have been hard at work to put Waterloo on the world startup leaderboard.</div>
-      <div class="quote-attr"><strong>Griffin Keglevich</strong>CTO &amp; Co-founder · Float · $30M Series A</div>
-    </div>
-
-    <div class="testimonial-card">
-      <div class="quote-mark">"</div>
-      <div class="quote-text">I couldn't think of a better team that embodies the values, spirit of entrepreneurship, and community that characterized Velocity's earliest days. Ross and Akash understand what makes Velocity special and why so many grads have gone on to change the world.</div>
-      <div class="quote-attr"><strong>Iyinoluwa Aboyeji</strong>UW &amp; Velocity alumnus · Co-founder, Andela ($1.5B) and Flutterwave ($3B)</div>
-    </div>
-
-    <div class="testimonial-card">
-      <div class="quote-mark">"</div>
-      <div class="quote-text">The VVF was instrumental to my development and success as an entrepreneur later in life. Velocity was a world-class, life-changing experience. I wouldn't be here today without it.</div>
-      <div class="quote-attr"><strong>Henry Shi</strong>UW CS '14 · Co-founder, Super.com · $85M Series C</div>
-    </div>
-
-    <div class="testimonial-card">
-      <div class="quote-mark">"</div>
-      <div class="quote-text">We will miss mostly having our mentors in the same place we work… Velocity has the right atmosphere for startups — working beside other people who work day and night on their dreams was an amazing experience.</div>
-      <div class="quote-attr"><strong>Martin Basiri</strong>CEO &amp; Co-founder · ApplyBoard · $3.2B Series D</div>
-    </div>
-
-  </div>
-</section>
-
-<!-- THESIS -->
-<section>
-  <div class="section-label">Our Thesis</div>
-  <div class="thesis-split reveal">
-    <div class="thesis-panel active">
-      <h3>The <em>Waterloo</em><br>advantage.</h3>
-      <p>The University of Waterloo produces more Canadian unicorn founders than any other institution. We've been embedded in the Velocity ecosystem since we were students — our offices sit at the entrance to Velocity Incubator. We see every company from day one, before there's a deck or a round. That's not a network. That's proximity.</p>
-      <span class="thesis-tag">~70% of our portfolio</span>
-    </div>
-    <div class="thesis-panel">
-      <h3>Technical teams<br>with early <em>signal.</em></h3>
-      <p>Great founders build from everywhere. When we see a technical team with early customer love, a differentiated insight, and the velocity to execute — regardless of where they went to school — we want to be the first call they make. Waterloo gives us our edge. Signal tells us when to use it.</p>
-      <span class="thesis-tag">~30% of our portfolio</span>
-    </div>
-  </div>
-</section>
-
-<!-- SPEED / PROCESS -->
-<section>
-  <div class="section-label">The Process</div>
-  <div class="speed-container">
-    <div class="speed-left reveal">
-      <h2>A decision in<br><em>2 weeks.</em><br>Guaranteed.</h2>
-      <p>Our investment committee meetings run on a fixed weekly cadence. We commit on the second Thursday after our first meeting. No ambiguity, no "we'll circle back." You always know exactly where you stand — yes or clear no.</p>
-      <p class="speed-note">Based on CVCA data, Velocity Fund was among Canada's most active pre-seed funds in 2024.</p>
-    </div>
-    <div class="timeline reveal">
-      <div class="timeline-item">
-        <div class="t-day">Day 0</div>
-        <div class="t-label">First meeting</div>
-        <div class="t-note">Pitch + initial team and market assessment</div>
-      </div>
-      <div class="timeline-item">
-        <div class="t-day">Days 1–7</div>
-        <div class="t-label">Follow-up &amp; diligence</div>
-        <div class="t-note">Questions shared upfront. No surprises.</div>
-      </div>
-      <div class="timeline-item">
-        <div class="t-day">Days 7–13</div>
-        <div class="t-label">Technical diligence + investment memo</div>
-        <div class="t-note">We go deep on the tech. We understand what you've built.</div>
-      </div>
-      <div class="timeline-item">
-        <div class="t-day">Day 14 — Thursday</div>
-        <div class="t-label" style="color:var(--yellow);">Term sheet or clear no. Always.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- TEAM -->
-<section id="team">
-  <div class="section-label">Team</div>
-  <div class="team-grid reveal">
-    <div class="team-card">
-      <div class="team-name">Akash Vaswani</div>
-      <div class="team-role">General Partner</div>
-      <div class="team-bio">Founded two companies at Velocity Incubator. Led machine learning at Palantir — helped uncover an illegal drug ring and optimized a 50-year-old oil field. Founded Alicorn Ventures before merging with Velocity Fund in 2022.</div>
-      <div class="team-tags">
-        <span class="tag">UW Mechatronics</span>
-        <span class="tag">Columbia MS ML</span>
-        <span class="tag">Palantir</span>
-        <span class="tag">2× Founder</span>
-      </div>
-    </div>
-    <div class="team-card">
-      <div class="team-name">Ross Robinson</div>
-      <div class="team-role">General Partner</div>
-      <div class="team-bio">Founded Tinker (YC S14) at Velocity — a crypto market maker handling 90% of Canadian Bitcoin volume at peak. Application reviewer for Y Combinator, screening 12,000+ companies. Former Interim Director, Velocity Incubator.</div>
-      <div class="team-tags">
-        <span class="tag">UW Computer Science</span>
-        <span class="tag">YC S14</span>
-        <span class="tag">YC App Reviewer</span>
-        <span class="tag">Velocity Director</span>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- CTA -->
 <section class="cta-section" id="apply">
   <h2>Building something ambitious? We want to hear from you.</h2>
@@ -607,28 +137,9 @@
 <footer>
   <p>© 2026 Velocity Fund II — velocity.fund</p>
   <p>Waterloo, Ontario · <a href="mailto:hello@velocity.fund">hello@velocity.fund</a></p>
-  <p><a href="/portfolio">Portfolio</a> · <a href="/team">Team</a> · <a href="/partnership">LPs</a></p>
+  <p><a href="portfolio.html">Portfolio</a> · <a href="team.html">Team</a> · <a href="how-we-help.html">How We Help</a></p>
 </footer>
 
-<script>
-  // cursor
-  const cur  = document.getElementById('cursor');
-  const ring = document.getElementById('cursorRing');
-  document.addEventListener('mousemove', e => {
-    cur.style.left  = e.clientX + 'px'; cur.style.top  = e.clientY + 'px';
-    setTimeout(() => { ring.style.left = e.clientX + 'px'; ring.style.top = e.clientY + 'px'; }, 80);
-  });
-  document.querySelectorAll('a,button').forEach(el => {
-    el.addEventListener('mouseenter', () => { ring.style.transform = 'translate(-50%,-50%) scale(1.8)'; ring.style.opacity = '.8'; });
-    el.addEventListener('mouseleave', () => { ring.style.transform = 'translate(-50%,-50%) scale(1)';   ring.style.opacity = '.35'; });
-  });
-
-  // scroll reveal
-  const obs = new IntersectionObserver(
-    es => es.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
-    { threshold: .08 }
-  );
-  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-</script>
+<script src="assets/js/main.js"></script>
 </body>
 </html>

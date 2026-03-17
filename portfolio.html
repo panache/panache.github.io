@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio — Velocity Fund</title>
+  <meta name="description" content="74+ portfolio companies across 5 vintages. Pre-seed investments in technical founders from Waterloo and beyond.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/portfolio.css">
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursor-ring"></div>
+
+<nav>
+  <a href="index.html" class="nav-logo">Velocity<span>Fund</span></a>
+  <ul>
+    <li><a href="portfolio.html" class="active">Portfolio</a></li>
+    <li><a href="how-we-help.html">How We Help</a></li>
+    <li><a href="team.html">Team</a></li>
+    <li><a href="index.html#apply" class="nav-cta">Apply</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="page-header-grid"></div>
+  <div class="page-header-glow"></div>
+  <div class="section-label">Portfolio</div>
+  <h1>74+ companies.<br>5 <em>vintages.</em></h1>
+  <p>Every company we've backed — from the first $25k scout cheque to the lead round.</p>
+</div>
+
+<!-- FILTER BAR -->
+<div class="filter-section">
+  <div class="filter-inner">
+
+    <div class="search-wrap">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input id="search" type="text" placeholder="Search companies…" autocomplete="off" spellcheck="false">
+    </div>
+
+    <div class="filter-dropdown" id="dd-fund">
+      <button class="dropdown-trigger" onclick="toggleDropdown('dd-fund')">
+        <span class="trigger-label">Fund</span>
+        <span class="trigger-value">All</span>
+        <span class="chevron"></span>
+      </button>
+      <div class="dropdown-menu">
+        <button class="dropdown-option active" data-filter="fund" data-val="all">All Funds</button>
+        <button class="dropdown-option" data-filter="fund" data-val="Fund I">Fund I</button>
+        <button class="dropdown-option" data-filter="fund" data-val="Fund II">Fund II</button>
+        <button class="dropdown-option" data-filter="fund" data-val="Rolling / Bridge">Rolling / Bridge</button>
+      </div>
+    </div>
+
+    <div class="filter-dropdown" id="dd-sector">
+      <button class="dropdown-trigger" onclick="toggleDropdown('dd-sector')">
+        <span class="trigger-label">Sector</span>
+        <span class="trigger-value">All</span>
+        <span class="chevron"></span>
+      </button>
+      <div class="dropdown-menu">
+        <button class="dropdown-option active" data-filter="sector" data-val="all">All Sectors</button>
+        <button class="dropdown-option" data-filter="sector" data-val="SaaS">SaaS</button>
+        <button class="dropdown-option" data-filter="sector" data-val="AI/ML">AI / ML</button>
+        <button class="dropdown-option" data-filter="sector" data-val="Health Tech">Health Tech</button>
+        <button class="dropdown-option" data-filter="sector" data-val="Deep Tech">Deep Tech</button>
+        <button class="dropdown-option" data-filter="sector" data-val="Fintech">Fintech</button>
+        <button class="dropdown-option" data-filter="sector" data-val="Climate">Climate</button>
+        <button class="dropdown-option" data-filter="sector" data-val="Gaming">Gaming</button>
+        <button class="dropdown-option" data-filter="sector" data-val="Consumer">Consumer</button>
+      </div>
+    </div>
+
+    <div class="filter-dropdown" id="dd-location">
+      <button class="dropdown-trigger" onclick="toggleDropdown('dd-location')">
+        <span class="trigger-label">Location</span>
+        <span class="trigger-value">All</span>
+        <span class="chevron"></span>
+      </button>
+      <div class="dropdown-menu">
+        <button class="dropdown-option active" data-filter="location" data-val="all">All Locations</button>
+        <button class="dropdown-option" data-filter="location" data-val="Canada">Canada</button>
+        <button class="dropdown-option" data-filter="location" data-val="United States">United States</button>
+      </div>
+    </div>
+
+    <div class="filter-dropdown" id="dd-year">
+      <button class="dropdown-trigger" onclick="toggleDropdown('dd-year')">
+        <span class="trigger-label">Year</span>
+        <span class="trigger-value">All</span>
+        <span class="chevron"></span>
+      </button>
+      <div class="dropdown-menu">
+        <button class="dropdown-option active" data-filter="year" data-val="all">All Years</button>
+        <button class="dropdown-option" data-filter="year" data-val="2026">2026</button>
+        <button class="dropdown-option" data-filter="year" data-val="2025">2025</button>
+        <button class="dropdown-option" data-filter="year" data-val="2024">2024</button>
+        <button class="dropdown-option" data-filter="year" data-val="2023">2023</button>
+        <button class="dropdown-option" data-filter="year" data-val="2022">2022</button>
+        <button class="dropdown-option" data-filter="year" data-val="2021">2021</button>
+        <button class="dropdown-option" data-filter="year" data-val="2020">2020</button>
+        <button class="dropdown-option" data-filter="year" data-val="2019">2019</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- RESULTS META -->
+<div class="results-meta">
+  <p class="results-count" id="resultsCount">Loading…</p>
+</div>
+
+<!-- GRID -->
+<div class="portfolio-wrap">
+  <div class="portfolio-grid-full" id="portfolioGrid"></div>
+</div>
+
+<footer>
+  <p>© 2026 Velocity Fund II — velocity.fund</p>
+  <p>Waterloo, Ontario · <a href="mailto:hello@velocity.fund">hello@velocity.fund</a></p>
+  <p><a href="index.html">Home</a> · <a href="team.html">Team</a> · <a href="how-we-help.html">How We Help</a></p>
+</footer>
+
+<script src="assets/js/main.js"></script>
+<script src="assets/js/portfolio.js"></script>
+</body>
+</html>
