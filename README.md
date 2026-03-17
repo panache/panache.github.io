@@ -69,6 +69,16 @@ All pages should include:
 - Shared JS before `</body>`: `<script src="assets/js/main.js"></script>`
 - Portfolio page also includes: `<script src="assets/js/portfolio.js"></script>`
 
+## ✉️ Apply CTA behavior (single source of truth)
+
+- All page “Apply” / “Tell Us About Your Company” links should use `class="apply-mailto"`.
+- `assets/js/main.js` holds a single `applyMailto` string with:
+  - `to`: `akash@velocity.fund,ross@velocity.fund,andrew@velocity.fund`
+  - `subject`: `application from website`
+  - `body`: provided application prompt text
+- Link markup is `href="#"` for safe fallback, and JS writes the mailto at runtime.
+
+
 ## 🔧 Assets details
 
 - `assets/css/main.css` – base typography, variables, layout, nav, footer, buttons, utility classes

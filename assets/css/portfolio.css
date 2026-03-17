@@ -29,7 +29,7 @@
   font-family: 'JetBrains Mono', monospace; font-size: 10px;
   letter-spacing: .1em; text-transform: uppercase;
   color: var(--mid); padding: 0 18px; height: 57px;
-  background: transparent; border: none; cursor: none;
+  background: transparent; border: none; cursor: pointer;
   transition: color .15s; white-space: nowrap; user-select: none;
 }
 .dropdown-trigger:hover { color: var(--text); }
@@ -60,7 +60,7 @@
   letter-spacing: .08em; text-transform: uppercase;
   color: var(--mid); padding: 13px 18px;
   background: transparent; border: none; border-bottom: 1px solid var(--border);
-  text-align: left; cursor: none;
+  text-align: left; cursor: pointer;
   transition: color .12s, background .12s;
 }
 .dropdown-option:last-child { border-bottom: none; }
@@ -86,7 +86,7 @@
 /* CARDS */
 .co-card {
   background: var(--card); padding: 36px 32px 32px;
-  position: relative; overflow: hidden; cursor: none;
+  position: relative; overflow: hidden; cursor: pointer;
   transition: background .2s; display: flex; flex-direction: column;
 }
 .co-card::before {

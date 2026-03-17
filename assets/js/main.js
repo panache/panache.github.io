@@ -7,30 +7,8 @@
   'use strict';
 
   /* ── CURSOR ── */
-  const cur  = document.getElementById('cursor');
-  const ring = document.getElementById('cursor-ring');
-
-  if (cur && ring) {
-    document.addEventListener('mousemove', e => {
-      cur.style.left = e.clientX + 'px';
-      cur.style.top  = e.clientY + 'px';
-      setTimeout(() => {
-        ring.style.left = e.clientX + 'px';
-        ring.style.top  = e.clientY + 'px';
-      }, 80);
-    });
-
-    document.querySelectorAll('a, button').forEach(el => {
-      el.addEventListener('mouseenter', () => {
-        ring.style.transform = 'translate(-50%,-50%) scale(1.8)';
-        ring.style.opacity   = '.8';
-      });
-      el.addEventListener('mouseleave', () => {
-        ring.style.transform = 'translate(-50%,-50%) scale(1)';
-        ring.style.opacity   = '.35';
-      });
-    });
-  }
+  // Custom cursor disabled; default browser cursor is active.
+  // The .cursor and .cursor-ring elements are now hidden via CSS.
 
   /* ── SCROLL REVEAL ── */
   const revealEls = document.querySelectorAll('.reveal');
@@ -53,6 +31,12 @@
     if (href === path || (path === '' && href === '') || (path === '/index' && href === '')) {
       link.classList.add('active');
     }
+  });
+
+  /* ── APPLY CTA MAILTO (single source of truth) ── */
+  const applyMailto = 'mailto:akash@velocity.fund,ross@velocity.fund,andrew@velocity.fund?subject=application%20from%20website&body=Send%20us%20a%20blurb%20about%20what%20your%20company%20does%2C%20who%20the%20founders%20are%2C%20why%20you%20want%20to%20work%20with%20us%2C%20and%20attach%20your%20deck.%20We%20look%20forward%20to%20hearing%20from%20you.';
+  document.querySelectorAll('a.apply-mailto').forEach(el => {
+    el.setAttribute('href', applyMailto);
   });
 
 })();
