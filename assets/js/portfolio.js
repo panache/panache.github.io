@@ -42,22 +42,26 @@
   function renderCard(c) {
     const domain   = c.website ? c.website.replace(/https?:\/\//, '').replace(/\/$/, '') : '';
     const yearStr  = c.date ? c.date.slice(0, 4) : '';
-    return `
-      <div class="co-card">
-        <div class="co-card-top">
-          <div class="co-card-name">${c.display_name}</div>
-          <div class="co-badges">
-            <span class="badge ${sectorClass(c.sector)}">${c.sector}</span>
-            <span class="badge fund-badge">${c.fund_display}</span>
-          </div>
+    const cardContent = `
+      <div class="co-card-top">
+        <div class="co-card-name">${c.display_name}</div>
+        <div class="co-badges">
+          <span class="badge ${sectorClass(c.sector)}">${c.sector}</span>
+          <span class="badge fund-badge">${c.fund_display}</span>
         </div>
-        ${c.founders ? `<div class="co-card-founders">${c.founders}</div>` : ''}
-        <div class="co-card-desc"><div class="co-card-desc-text">${c.desc}</div></div>
-        ${domain ? `<a href="${c.website}" class="co-website" target="_blank" rel="noopener">${domain} ↗</a>` : ''}
-        <div class="co-card-bottom">
-          <div class="co-card-meta">${[c.round, yearStr].filter(Boolean).join(' · ')}</div>
-        </div>
+      </div>
+      ${c.founders ? `<div class="co-card-founders">${c.founders}</div>` : ''}
+      <div class="co-card-desc"><div class="co-card-desc-text">${c.desc}</div></div>
+      ${domain ? `<div class="co-website">${domain} ↗</div>` : ''}
+      <div class="co-card-bottom">
+        <div class="co-card-meta">${[c.round, yearStr].filter(Boolean).join(' · ')}</div>
       </div>`;
+
+    if (c.website) {
+      return `<a href="${c.website}" class="co-card" target="_blank" rel="noopener noreferrer">${cardContent}</a>`;
+    }
+
+    return `<div class="co-card">${cardContent}</div>`;
   }
 
   /* ── RENDER ── */
