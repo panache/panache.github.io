@@ -105,7 +105,12 @@
   color: var(--muted); text-decoration: none; transition: color .2s;
   display: flex; align-items: center; gap: 6px;
 }
-.gp-link:hover { color: var(--yellow); }
+.gp-link:hover { color: var(--muted); cursor: auto; }
+
+/* Disable profile hover interactions on team page */
+.gp-card:hover::before { background: transparent; }
+.gp-card:hover { background: var(--card); }
+.gp-card:hover .tag { border-color: var(--borderB); }
 
 /* ORIGIN SECTION */
 .origin-section { border-top: 1px solid var(--border); }
