@@ -106,14 +106,14 @@
   padding: 3px 8px; border: 1px solid var(--borderB); color: var(--muted);
   white-space: nowrap;
 }
-.badge.sector-saas     { border-color: #7aa2f780; color: #7aa2f7; }
-.badge.sector-ai       { border-color: #f5e64280; color: #f5e642; }
+.badge.sector-saas     { border-color: #f5e64280; color: #f5e642; }
+.badge.sector-ai       { border-color: #5af5a080; color: #5af5a0; }
 .badge.sector-health   { border-color: #5af5a080; color: #5af5a0; }
-.badge.sector-deeptech { border-color: #bb9af780; color: #bb9af7; }
-.badge.sector-fintech  { border-color: #ff9e6480; color: #ff9e64; }
+.badge.sector-deeptech { border-color: #f5e64280; color: #f5e642; }
+.badge.sector-fintech  { border-color: #f5e64280; color: #f5e642; }
 .badge.sector-climate  { border-color: #9ece6a80; color: #9ece6a; }
-.badge.sector-gaming   { border-color: #f7768e80; color: #f7768e; }
-.badge.sector-consumer { border-color: #2ac3de80; color: #2ac3de; }
+.badge.sector-gaming   { border-color: #f5e64280; color: #f5e642; }
+.badge.sector-consumer { border-color: #f5e64280; color: #f5e642; }
 .badge.fund-badge      { border-color: #555566;   color: #555566; }
 
 .co-card-founders { font-family: 'JetBrains Mono', monospace; font-size: 9px; color: var(--muted); letter-spacing: .04em; margin-bottom: 14px; line-height: 1.6; }
