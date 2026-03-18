@@ -84,11 +84,21 @@
 }
 
 /* CARDS */
-.co-card {
+.co-card,
+.co-card:link,
+.co-card:visited,
+.co-card:hover,
+.co-card:active {
   background: var(--card); padding: 36px 32px 32px;
   position: relative; overflow: hidden; cursor: pointer;
   transition: background .2s; display: flex; flex-direction: column;
+  color: var(--text); text-decoration: none;
 }
+
+.co-card * {
+  color: inherit;
+}
+
 .co-card::before {
   content: ''; position: absolute; top: 0; left: 0;
   width: 2px; height: 0; background: var(--yellow); transition: height .3s;
@@ -106,15 +116,15 @@
   padding: 3px 8px; border: 1px solid var(--borderB); color: var(--muted);
   white-space: nowrap;
 }
-.badge.sector-saas     { border-color: #f5e64280; color: #f5e642; }
-.badge.sector-ai       { border-color: #5af5a080; color: #5af5a0; }
-.badge.sector-health   { border-color: #5af5a080; color: #5af5a0; }
-.badge.sector-deeptech { border-color: #f5e64280; color: #f5e642; }
-.badge.sector-fintech  { border-color: #f5e64280; color: #f5e642; }
-.badge.sector-climate  { border-color: #9ece6a80; color: #9ece6a; }
-.badge.sector-gaming   { border-color: #f5e64280; color: #f5e642; }
-.badge.sector-consumer { border-color: #f5e64280; color: #f5e642; }
-.badge.fund-badge      { border-color: #555566;   color: #555566; }
+.badge.sector-saas     { border-color: rgba(245, 230, 66, .6); color: #f5e642; }
+.badge.sector-ai       { border-color: rgba(255, 101, 130, .45); color: #ff6582; }
+.badge.sector-health   { border-color: rgba(135, 161, 245, .45); color: #87a1f5; }
+.badge.sector-deeptech { border-color: rgba(237, 149, 175, .45); color: #d9a4cb; }
+.badge.sector-fintech  { border-color: rgba(255, 158, 100, .45); color: #ffb77d; }
+.badge.sector-climate  { border-color: rgba(158, 206, 106, .4); color: #9ece6a; }
+.badge.sector-gaming   { border-color: rgba(241, 118, 142, .4); color: #f7768e; }
+.badge.sector-consumer { border-color: rgba(170, 223, 240, .45); color: #7fd5ed; }
+.badge.fund-badge      { border-color: #777; color: #999; }
 
 .co-card-founders { font-family: 'JetBrains Mono', monospace; font-size: 9px; color: var(--muted); letter-spacing: .04em; margin-bottom: 14px; line-height: 1.6; }
 .co-card-desc { font-size: 12px; color: var(--mid); line-height: 1.7; flex: 1; }
