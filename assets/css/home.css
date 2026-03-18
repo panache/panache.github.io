@@ -115,8 +115,8 @@
 }
 .portfolio-card:hover::before { height: 100%; }
 .portfolio-card:hover { background: var(--surface); }
-.co-name    { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 22px; font-weight: 800; letter-spacing: -.02em; margin-bottom: 8px; }
-.co-founders { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--mid); letter-spacing: .04em; margin-bottom: 18px; line-height: 1.7; }
+.co-name    { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 16px; font-weight: 800; letter-spacing: -.02em; margin-bottom: 6px; }
+.co-founders { font-family: 'JetBrains Mono', monospace; font-size: 14px; color: var(--text); letter-spacing: .04em; margin-bottom: 16px; line-height: 1.5; }
 .co-desc    { font-size: 13px; color: var(--mid); line-height: 1.75; }
 .co-outcome { margin-top: 20px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--green); letter-spacing: .03em; line-height: 1.6; }
 .co-outcome::before { content: '→ '; }
@@ -126,6 +126,11 @@
 .marquee-inner   { display: flex; gap: 40px; animation: scroll 22s linear infinite; }
 .marquee-word    { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 72px; font-weight: 800; letter-spacing: -.03em; color: transparent; -webkit-text-stroke: 1px var(--borderB); white-space: nowrap; flex-shrink: 0; }
 .marquee-word.filled { -webkit-text-stroke: none; color: var(--yellow); }
+
+@media (max-width: 700px) {
+  .marquee-divider { display: none !important; }
+  .marquee-inner { display: none !important; }
+}
 
 @media (max-width: 900px) {
   .hero { padding: 80px 20px 60px; }
