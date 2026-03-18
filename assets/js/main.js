@@ -34,7 +34,7 @@
   });
 
   /* ── APPLY CTA MAILTO (single source of truth) ── */
-  const applyMailto = 'mailto:akash@velocity.fund,ross@velocity.fund,andrew@velocity.fund?subject=application%20from%20website&body=Send%20us%20a%20blurb%20about%20what%20your%20company%20does%2C%20who%20the%20founders%20are%2C%20why%20you%20want%20to%20work%20with%20us%2C%20and%20attach%20your%20deck.%20We%20look%20forward%20to%20hearing%20from%20you.';
+  const applyMailto = 'mailto:akash@velocity.fund,ross@velocity.fund,andrew@velocity.fund?subject=Application%20from%20website&body=Send%20us%20a%20blurb%20about%20what%20your%20company%20does%2C%20who%20the%20founders%20are%2C%20and%20attach%20your%20deck.%20We%20look%20forward%20to%20hearing%20from%20you!';
   document.querySelectorAll('a.apply-mailto').forEach(el => {
     el.setAttribute('href', applyMailto);
   });
