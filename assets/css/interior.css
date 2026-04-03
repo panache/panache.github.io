@@ -86,7 +86,7 @@
 .gp-card:hover { background: var(--surface); }
 
 .gp-avatar {
-  width: 140px; height: 140px; border: 1px solid var(--border); border-radius: 50%;
+  width: 140px; height: 140px; border: 1px solid var(--border); border-radius: 0%;
   display: block; overflow: hidden; margin: 0 auto 28px;
   background: var(--surface); object-fit: cover;
 }
