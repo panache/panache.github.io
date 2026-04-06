@@ -245,6 +245,20 @@ footer a:hover { color: var(--yellow); }
   to   { opacity: 1; transform: none; }
 }
 
+/* COMPANY LOGO */
+.co-logo {
+  height: 24px;
+  width: auto;
+  max-width: 160px;
+  margin-bottom: 20px;
+  display: block;
+  filter: brightness(0) invert(1);
+  opacity: 0.6;
+  transition: opacity .2s;
+}
+.portfolio-card:hover .co-logo,
+.co-card:hover .co-logo { opacity: 0.85; }
+
 /* RESPONSIVE */
 @media (max-width: 900px) {
   nav { padding: 0 20px; }

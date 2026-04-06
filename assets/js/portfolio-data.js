@@ -73,7 +73,8 @@ window.PORTFOLIO = [
     "status": "Active",
     "fund_display": "Fund II",
     "location": "Canada",
-    "display_name": "CareQuilt"
+    "display_name": "CareQuilt",
+    "logo": "assets/images/logos/carequilt.png"
   },
   {
     "fund": "Fund II",
@@ -130,7 +131,8 @@ window.PORTFOLIO = [
     "status": "Active",
     "fund_display": "Fund I",
     "location": "Canada",
-    "display_name": "Phoenix"
+    "display_name": "Phoenix",
+    "logo": "assets/images/logos/phoenix.png"
   },
   {
     "fund": "Rolling",
@@ -149,7 +151,8 @@ window.PORTFOLIO = [
     "status": "Active",
     "fund_display": "Rolling / Bridge",
     "location": "Canada",
-    "display_name": "Scribenote"
+    "display_name": "Scribenote",
+    "logo": "assets/images/logos/scribenote.png"
   },
   {
     "fund": "Fund I",
@@ -168,7 +171,8 @@ window.PORTFOLIO = [
     "status": "Active",
     "fund_display": "Fund I",
     "location": "Canada",
-    "display_name": "MedMe Health"
+    "display_name": "MedMe Health",
+    "logo": "assets/images/logos/medme.png"
   },
   {
     "fund": "Fund I",
@@ -187,7 +191,8 @@ window.PORTFOLIO = [
     "status": "Written Off",
     "fund_display": "Fund I",
     "location": "Canada",
-    "display_name": "SuperVisas"
+    "display_name": "SuperVisas",
+    "logo": "assets/images/logos/supervisas.png"
   },
   {
     "fund": "Fund I",
@@ -206,7 +211,8 @@ window.PORTFOLIO = [
     "status": "Active",
     "fund_display": "Fund I",
     "location": "Canada",
-    "display_name": "Ground News"
+    "display_name": "Ground News",
+    "logo": "assets/images/logos/ground-news.png"
   },
   {
     "fund": "Fund I",
@@ -225,7 +231,8 @@ window.PORTFOLIO = [
     "status": "Active",
     "fund_display": "Fund I",
     "location": "Canada",
-    "display_name": "Ceragen"
+    "display_name": "Ceragen",
+    "logo": "assets/images/logos/ceragen.png"
   },
   {
     "fund": "Fund I",
@@ -244,7 +251,8 @@ window.PORTFOLIO = [
     "status": "Active",
     "fund_display": "Fund I",
     "location": "Canada",
-    "display_name": "Cubby Beds"
+    "display_name": "Cubby Beds",
+    "logo": "assets/images/logos/cubby.png"
   },
   {
     "fund": "Fund I",
@@ -263,7 +271,8 @@ window.PORTFOLIO = [
     "status": "Active",
     "fund_display": "Fund I",
     "location": "Canada",
-    "display_name": "Masterpiece Studio"
+    "display_name": "Masterpiece Studio",
+    "logo": "assets/images/logos/masterpiece.png"
   },
   {
     "fund": "Fund I",
@@ -282,7 +291,8 @@ window.PORTFOLIO = [
     "status": "Active",
     "fund_display": "Fund I",
     "location": "Canada",
-    "display_name": "Epoch"
+    "display_name": "Epoch",
+    "logo": "assets/images/logos/epoch.png"
   },
   {
     "fund": "Fund I",
@@ -301,7 +311,8 @@ window.PORTFOLIO = [
     "status": "Active",
     "fund_display": "Fund I",
     "location": "Canada",
-    "display_name": "ALT TEX"
+    "display_name": "ALT TEX",
+    "logo": "assets/images/logos/alttex.png"
   },
   {
     "fund": "Fund I",
@@ -339,7 +350,8 @@ window.PORTFOLIO = [
     "status": "Active",
     "fund_display": "Fund I",
     "location": "Canada",
-    "display_name": "Equator Studios"
+    "display_name": "Equator Studios",
+    "logo": "assets/images/logos/equator.png"
   },
   {
     "fund": "Fund I",
@@ -377,7 +389,8 @@ window.PORTFOLIO = [
     "status": "Active",
     "fund_display": "Fund I",
     "location": "Canada",
-    "display_name": "Level Software"
+    "display_name": "Level Software",
+    "logo": "assets/images/logos/level.png"
   },
   {
     "fund": "Fund I",
@@ -396,7 +409,8 @@ window.PORTFOLIO = [
     "status": "Active",
     "fund_display": "Fund I",
     "location": "Canada",
-    "display_name": "Fly Ribbit"
+    "display_name": "Fly Ribbit",
+    "logo": "assets/images/logos/ribbit.png"
   },
   {
     "fund": "Fund I",
@@ -415,7 +429,8 @@ window.PORTFOLIO = [
     "status": "Active",
     "fund_display": "Fund I",
     "location": "Canada",
-    "display_name": "Avro Life Science"
+    "display_name": "Avro Life Science",
+    "logo": "assets/images/logos/avro.png"
   },
   {
     "fund": "Fund I",
@@ -453,7 +468,8 @@ window.PORTFOLIO = [
     "status": "Active",
     "fund_display": "Fund I",
     "location": "Canada",
-    "display_name": "Agilicus"
+    "display_name": "Agilicus",
+    "logo": "assets/images/logos/agilicus.png"
   },
   {
     "fund": "Fund I",
@@ -472,7 +488,8 @@ window.PORTFOLIO = [
     "status": "Active",
     "fund_display": "Fund I",
     "location": "Canada",
-    "display_name": "PainWorth"
+    "display_name": "PainWorth",
+    "logo": "assets/images/logos/painworth.png"
   },
   {
     "fund": "Fund I",
@@ -529,7 +546,8 @@ window.PORTFOLIO = [
     "status": "Active",
     "fund_display": "Rolling / Bridge",
     "location": "Canada",
-    "display_name": "Lending Loop"
+    "display_name": "Lending Loop",
+    "logo": "assets/images/logos/loop.png"
   },
   {
     "fund": "Rolling",
@@ -548,7 +566,8 @@ window.PORTFOLIO = [
     "status": "Active",
     "fund_display": "Rolling / Bridge",
     "location": "Canada",
-    "display_name": "Page"
+    "display_name": "Page",
+    "logo": "assets/images/logos/page.png"
   },
   {
     "fund": "Rolling",
@@ -567,7 +586,8 @@ window.PORTFOLIO = [
     "status": "Active",
     "fund_display": "Rolling / Bridge",
     "location": "France",
-    "display_name": "NuMind"
+    "display_name": "NuMind",
+    "logo": "assets/images/logos/numind.png"
   },
   {
     "fund": "Rolling",
@@ -586,7 +606,8 @@ window.PORTFOLIO = [
     "status": "Active",
     "fund_display": "Rolling / Bridge",
     "location": "United States",
-    "display_name": "Setori"
+    "display_name": "Setori",
+    "logo": "assets/images/logos/setori.png"
   },
   {
     "fund": "Rolling",
@@ -605,7 +626,8 @@ window.PORTFOLIO = [
     "status": "Active",
     "fund_display": "Rolling / Bridge",
     "location": "United States",
-    "display_name": "Stabl"
+    "display_name": "Stabl",
+    "logo": "assets/images/logos/stabl.png"
   },
   {
     "fund": "Rolling",
@@ -624,7 +646,8 @@ window.PORTFOLIO = [
     "status": "Active",
     "fund_display": "Rolling / Bridge",
     "location": "Canada",
-    "display_name": "LifestyleRx"
+    "display_name": "LifestyleRx",
+    "logo": "assets/images/logos/lifestylerx.png"
   },
   {
     "fund": "Rolling",
@@ -643,7 +666,8 @@ window.PORTFOLIO = [
     "status": "Active",
     "fund_display": "Rolling / Bridge",
     "location": "Canada",
-    "display_name": "Junip"
+    "display_name": "Junip",
+    "logo": "assets/images/logos/junip.png"
   },
   {
     "fund": "Rolling",
@@ -662,7 +686,8 @@ window.PORTFOLIO = [
     "status": "Active",
     "fund_display": "Rolling / Bridge",
     "location": "Canada",
-    "display_name": "Supademo"
+    "display_name": "Supademo",
+    "logo": "assets/images/logos/supademo.png"
   },
   {
     "fund": "Rolling",
@@ -680,7 +705,8 @@ window.PORTFOLIO = [
     "status": "Active",
     "fund_display": "Rolling / Bridge",
     "location": "Canada",
-    "display_name": "Key Ops"
+    "display_name": "Key Ops",
+    "logo": "assets/images/logos/keyops.png"
   },
   {
     "fund": "Fund I",
@@ -698,7 +724,8 @@ window.PORTFOLIO = [
     "status": "Active",
     "fund_display": "Fund I",
     "location": "Canada",
-    "display_name": "Hyivy Health"
+    "display_name": "Hyivy Health",
+    "logo": "assets/images/logos/hyivy.png"
   },
   {
     "fund": "Fund I",
@@ -716,7 +743,8 @@ window.PORTFOLIO = [
     "status": "Active",
     "fund_display": "Fund I",
     "location": "Canada",
-    "display_name": "Embryome"
+    "display_name": "Embryome",
+    "logo": "assets/images/logos/embryome.png"
   },
   {
     "fund": "Fund I",
@@ -734,7 +762,8 @@ window.PORTFOLIO = [
     "status": "Active",
     "fund_display": "Fund I",
     "location": "Canada",
-    "display_name": "Pronti AI"
+    "display_name": "Pronti AI",
+    "logo": "assets/images/logos/pronti.png"
   },
   {
     "fund": "Rolling",
@@ -752,7 +781,8 @@ window.PORTFOLIO = [
     "status": "Active",
     "fund_display": "Rolling / Bridge",
     "location": "United States",
-    "display_name": "Untether Labs"
+    "display_name": "Untether Labs",
+    "logo": "assets/images/logos/untether.png"
   },
   {
     "fund": "Fund II",
@@ -950,7 +980,8 @@ window.PORTFOLIO = [
     "status": "Active",
     "fund_display": "Rolling / Bridge",
     "location": "Canada",
-    "display_name": "Passage"
+    "display_name": "Passage",
+    "logo": "assets/images/logos/passage.png"
   },
   {
     "fund": "Rolling",
@@ -968,7 +999,8 @@ window.PORTFOLIO = [
     "status": "Active",
     "fund_display": "Rolling / Bridge",
     "location": "Canada",
-    "display_name": "Sonero"
+    "display_name": "Sonero",
+    "logo": "assets/images/logos/sonero.png"
   },
   {
     "fund": "Fund I",
@@ -1022,7 +1054,8 @@ window.PORTFOLIO = [
     "status": "Active",
     "fund_display": "Fund I",
     "location": "Canada",
-    "display_name": "Able Innovations"
+    "display_name": "Able Innovations",
+    "logo": "assets/images/logos/able.png"
   },
   {
     "fund": "Fund I",
@@ -1040,7 +1073,8 @@ window.PORTFOLIO = [
     "status": "Active",
     "fund_display": "Fund I",
     "location": "United States",
-    "display_name": "Samos"
+    "display_name": "Samos",
+    "logo": "assets/images/logos/samos.png"
   },
   {
     "fund": "Fund I",
@@ -1058,7 +1092,8 @@ window.PORTFOLIO = [
     "status": "Active",
     "fund_display": "Fund I",
     "location": "Canada",
-    "display_name": "Scispot.io"
+    "display_name": "Scispot.io",
+    "logo": "assets/images/logos/scispot.png"
   },
   {
     "fund": "Fund II",
@@ -1094,7 +1129,8 @@ window.PORTFOLIO = [
     "status": "Active",
     "fund_display": "Rolling / Bridge",
     "location": "Canada",
-    "display_name": "RunQL"
+    "display_name": "RunQL",
+    "logo": "assets/images/logos/runql.png"
   },
   {
     "fund": "Rolling",
@@ -1112,7 +1148,8 @@ window.PORTFOLIO = [
     "status": "Active",
     "fund_display": "Rolling / Bridge",
     "location": "Canada",
-    "display_name": "Respawned"
+    "display_name": "Respawned",
+    "logo": "assets/images/logos/respawned.png"
   },
   {
     "fund": "Fund I",
@@ -1148,7 +1185,8 @@ window.PORTFOLIO = [
     "status": "Active",
     "fund_display": "Rolling / Bridge",
     "location": "United States",
-    "display_name": "Qidni Labs"
+    "display_name": "Qidni Labs",
+    "logo": "assets/images/logos/qidni.png"
   },
   {
     "fund": "Fund II",
@@ -1202,7 +1240,8 @@ window.PORTFOLIO = [
     "status": "Active",
     "fund_display": "Fund I",
     "location": "United States",
-    "display_name": "Drifting in Space"
+    "display_name": "Drifting in Space",
+    "logo": "assets/images/logos/drifting-in.png"
   },
   {
     "fund": "Fund I",
@@ -1328,7 +1367,8 @@ window.PORTFOLIO = [
     "status": "Written Off",
     "fund_display": "Fund I",
     "location": "Canada",
-    "display_name": "Caribou Health"
+    "display_name": "Caribou Health",
+    "logo": "assets/images/logos/caribou.png"
   },
   {
     "fund": "Fund I",
@@ -1346,7 +1386,8 @@ window.PORTFOLIO = [
     "status": "Written Off",
     "fund_display": "Fund I",
     "location": "Canada",
-    "display_name": "1mentor"
+    "display_name": "1mentor",
+    "logo": "assets/images/logos/1mentor.png"
   },
   {
     "fund": "Fund I",
