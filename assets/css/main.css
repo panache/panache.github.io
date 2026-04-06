@@ -66,6 +66,8 @@ nav {
   color: var(--text); text-decoration: none;
 }
 .nav-logo span { color: var(--yellow); }
+.nav-logo img { height: 28px; width: auto; display: block; transition: filter .2s; }
+.nav-logo:hover img { filter: brightness(0) saturate(100%) invert(93%) sepia(42%) saturate(900%) hue-rotate(5deg) brightness(103%); }
 nav ul { list-style: none; display: flex; gap: 36px; }
 nav a {
   font-family: 'JetBrains Mono', monospace;
