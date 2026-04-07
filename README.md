@@ -1,20 +1,17 @@
 # Velocity Fund Website
 
-Static site for [velocity.fund](https://velocity.fund) — Canada’s pre-seed fund for founders who move fast.
+Static site for [velocity.fund](https://velocity.fund) — Canada's pre-seed fund for founders who move fast.
 
 ---
 
-## 🚀 What this repo contains
+## Pages
 
-- `index.html` – Homepage with hero, stats, ticker, company highlights, CTA
-- `portfolio.html` – Filterable portfolio list (data+logic in assets/js/portfolio.js)
-- `how-we-help.html` – Process, pillars, thesis, testimonials
-- `team.html` – Founders + leadership profile
-- `assets/css` – all CSS files
-- `assets/js` – all behavior scripts
-- `.nojekyll`, `_config.yml` — GitHub Pages config
+- `index.html` — Homepage: hero, stats, ticker, portfolio highlights, testimonials, CTA
+- `portfolio.html` — Filterable portfolio grid (74+ companies, filter by fund/sector/location/year)
+- `how-we-help.html` — Pillars, process timeline, thesis, testimonials
+- `team.html` — GP bios (Akash Vaswani, Ross Robinson)
 
-## 📁 Current structure
+## File structure
 
 ```
 /
@@ -24,103 +21,74 @@ Static site for [velocity.fund](https://velocity.fund) — Canada’s pre-seed f
 ├── team.html
 ├── assets/
 │   ├── css/
-│   │   ├── main.css
-│   │   ├── home.css
-│   │   ├── portfolio.css
-│   │   └── interior.css
-│   └── js/
-│       ├── main.js
-│       └── portfolio.js
+│   │   ├── main.css          # tokens, reset, nav, footer, buttons, shared utilities
+│   │   ├── home.css          # hero, ticker, marquee, home portfolio cards
+│   │   ├── portfolio.css     # filter bar, portfolio grid, co-card styles
+│   │   └── interior.css      # team + how-we-help page components
+│   ├── js/
+│   │   ├── main.js           # reveal-on-scroll, apply mailto, nav state
+│   │   ├── portfolio-data.js # PORTFOLIO array — one object per company
+│   │   └── portfolio.js      # filter/search/render logic for portfolio page
+│   └── images/
+│       ├── logos/            # company logos (PNG, transparent bg)
+│       ├── Akash-08.png
+│       ├── Ross-3.png
+│       └── VF Logo - White@4x.png
+├── CNAME
 ├── .nojekyll
-├── _config.yml
-└── README.md
+└── _config.yml
 ```
 
-## 🛠️ Local development
+## Local development
 
-1. `cd /path/to/panache.github.io`
-2. Start local server (any static server works):
-   - `python3 -m http.server 8000`
-   - or `npx serve .`
-3. Open `http://localhost:8000`
+```bash
+python3 -m http.server 8000
+# then open http://localhost:8000
+```
 
-### Quick validation
+No build step. Pure HTML/CSS/JS.
 
-- In browser devtools Network tab, verify CSS/JS paths load from:
-  - `assets/css/main.css`
-  - `assets/css/home.css`
-  - `assets/css/portfolio.css`
-  - `assets/css/interior.css`
-  - `assets/js/main.js`
-  - `assets/js/portfolio.js`
-- No 404s for CSS/JS.
-- Console should be clean except known warnings.
+## Portfolio data
 
-## 🧩 HTML include conventions
+Company records live in `assets/js/portfolio-data.js` as `window.PORTFOLIO`. Each entry:
 
-All pages should include:
+```js
+{
+  display_name: "Scribenote",
+  fund: "Fund II",
+  fund_display: "Fund II",
+  date: "2021-03-01",         // YYYY-MM-DD
+  sector: "AI/ML",            // used for filter + badge colour
+  location: "Canada",         // "Canada" | "United States"
+  founders: "Ryan Gallagher · ...",
+  desc: "...",
+  round: "Pre-Seed",
+  website: "https://...",
+  logo: "assets/images/logos/scribenote.png",  // optional
+  invested: 100000,
+  fair_value: 150000,
+  distributed: 0,
+  status: "Active",
+}
+```
 
-- Google fonts (same on all pages)
-- Shared CSS: `<link rel="stylesheet" href="assets/css/main.css">`
-- Page-specific CSS:
-  - `index.html` → `assets/css/home.css`
-  - `portfolio.html` → `assets/css/portfolio.css`
-  - `how-we-help.html` + `team.html` → `assets/css/interior.css`
-- Shared JS before `</body>`: `<script src="assets/js/main.js"></script>`
-- Portfolio page also includes: `<script src="assets/js/portfolio.js"></script>`
+Cards with a `logo` field show the logo instead of the company name. Cards without a logo fall back to the text name.
 
-## ✉️ Apply CTA behavior (single source of truth)
+## Company logos
 
-- All page “Apply” / “Tell Us About Your Company” links should use `class="apply-mailto"`.
-- `assets/js/main.js` holds a single `applyMailto` string with:
-  - `to`: `akash@velocity.fund,ross@velocity.fund,andrew@velocity.fund`
-  - `subject`: `application from website`
-  - `body`: provided application prompt text
-- Link markup is `href="#"` for safe fallback, and JS writes the mailto at runtime.
+Logos are stored in `assets/images/logos/`. They were downloaded from the live portfolio page and had backgrounds removed via flood-fill. To add a new logo:
 
+1. Drop a PNG into `assets/images/logos/`
+2. Add `"logo": "assets/images/logos/yourfile.png"` to the company object in `portfolio-data.js`
 
-## 🔧 Assets details
+## Apply CTA
 
-- `assets/css/main.css` – base typography, variables, layout, nav, footer, buttons, utility classes
-- `assets/css/home.css` – hero, ticker, marquee, portfolio highlights, home-specific sections
-- `assets/css/portfolio.css` – portfolio filters, cards, table/list styles
-- `assets/css/interior.css` – interior page generic components for how-we-help/team
+All "Apply" / "Tell Us About Your Company" links use `class="apply-mailto"`. `main.js` rewrites the `href` at runtime with a pre-filled mailto to `akash@velocity.fund`, `ross@velocity.fund`, `andrew@velocity.fund`.
 
-- `assets/js/main.js` – cursor effect, reveal-on-scroll, current nav highlight, shared interactive behavior
-- `assets/js/portfolio.js` – data array and filtering rendering for portfolio page
+## Nav logo
 
-## 🐛 Recent bug and fix history
+All pages use `assets/images/VF Logo - White@4x.png` in the nav. Turns yellow on hover via CSS filter.
 
-- Issue: CSS/JS previously referenced `assets/css/...` and `assets/js/...`, but files were in root, causing 404s.
-- Fixed: moved `.css` / `.js` files into `assets/` and standardized all HTML refs.
+## Deploy
 
-## ➕ Adding a new page
-
-1. create `new-page.html`
-2. include standard head block:
-   - `<link rel="stylesheet" href="assets/css/main.css">`
-   - page-specific CSS file under `assets/css`
-3. include standard footer block with `<script src="assets/js/main.js"></script>`
-4. add link to nav in all pages (or in global layout if refactor to template system)
-
-## 🧪 Maintenance checklist
-
-- Keep all shared style/behaviors in main assets.
-- Keep page-specific logic in relevant HTML + per-page CSS/JS.
-- When editing portfolio data: use array in `assets/js/portfolio.js`.
-- If one page gets heavy logic, consider moving to a modular JS import setup (future refactor).
-
----
-
-## 📦 Deploy to GitHub Pages
-
-1. Push branch to GitHub.
-2. Settings → Pages → Source: `main` branch, `/ (root)`.
-3. Expect site at `https://<username>.github.io/panache.github.io/` (or custom domain).
-
-### Custom domain setup (`velocity.fund`)
-
-- Root: `CNAME` file containing `velocity.fund`
-- DNS record: `A` pointing to GitHub Pages IPs or `CNAME` to your github.io site
-- GitHub handles SSL.
-
+Push to `main`. GitHub Pages serves from root. Custom domain configured via `CNAME` file (`velocity.fund`) + DNS A records pointing to GitHub Pages IPs.
