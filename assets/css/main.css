@@ -247,17 +247,18 @@ footer a:hover { color: var(--yellow); }
 
 /* COMPANY LOGO */
 .co-logo {
-  height: 24px;
+  height: 36px;
   width: auto;
-  max-width: 160px;
-  margin-bottom: 20px;
+  max-width: 100%;
+  margin-bottom: 0;
   display: block;
-  filter: brightness(0) invert(1);
-  opacity: 0.6;
+  opacity: 0.85;
   transition: opacity .2s;
+  object-fit: contain;
+  object-position: left center;
 }
 .portfolio-card:hover .co-logo,
-.co-card:hover .co-logo { opacity: 0.85; }
+.co-card:hover .co-logo { opacity: 1; }
 
 /* RESPONSIVE */
 @media (max-width: 900px) {

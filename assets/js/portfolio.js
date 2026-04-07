@@ -42,11 +42,12 @@
   function renderCard(c) {
     const domain   = c.website ? c.website.replace(/https?:\/\//, '').replace(/\/$/, '') : '';
     const yearStr  = c.date ? c.date.slice(0, 4) : '';
-    const logoHtml = c.logo ? `<img src="${c.logo}" alt="${c.display_name}" class="co-logo">` : '';
+    const nameOrLogo = c.logo
+      ? `<img src="${c.logo}" alt="${c.display_name}" class="co-logo">`
+      : `<div class="co-card-name">${c.display_name}</div>`;
     const cardContent = `
-      ${logoHtml}
       <div class="co-card-top">
-        ${c.logo ? '' : `<div class="co-card-name">${c.display_name}</div>`}
+        ${nameOrLogo}
         <div class="co-badges">
           <span class="badge ${sectorClass(c.sector)}">${c.sector}</span>
           <span class="badge fund-badge">${c.fund_display}</span>
