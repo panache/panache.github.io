@@ -108,6 +108,10 @@
 .portfolio-card {
   background: var(--black); padding: 44px 40px;
   transition: background .2s; position: relative; overflow: hidden;
+  display: block; text-decoration: none; color: inherit; cursor: pointer;
+}
+a.portfolio-card:link, a.portfolio-card:visited, a.portfolio-card:hover, a.portfolio-card:active {
+  color: inherit; text-decoration: none;
 }
 .portfolio-card::before {
   content: ''; position: absolute; top: 0; left: 0;
@@ -124,7 +128,7 @@
 /* MARQUEE */
 .marquee-divider { overflow: hidden; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 18px 0; }
 .marquee-inner   { display: flex; gap: 40px; animation: scroll 22s linear infinite; }
-.marquee-word    { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 72px; font-weight: 800; letter-spacing: -.03em; color: transparent; -webkit-text-stroke: 1px var(--borderB); white-space: nowrap; flex-shrink: 0; }
+.marquee-word    { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 72px; font-weight: 800; letter-spacing: -.03em; color: var(--borderB); white-space: nowrap; flex-shrink: 0; }
 .marquee-word.filled { -webkit-text-stroke: none; color: var(--yellow); }
 
 @media (max-width: 700px) {

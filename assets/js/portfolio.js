@@ -20,18 +20,21 @@
     'Gaming': 'sector-gaming', 'Consumer': 'sector-consumer'
   }[s] || '');
 
+  // Normalise: always work with an array of sectors
+  const getSectors = c => Array.isArray(c.sectors) ? c.sectors : (c.sector ? [c.sector] : []);
+
   /* ── FILTER + SORT ── */
   function getVisible() {
     return PORTFOLIO
       .filter(c => {
         if (filters.fund     !== 'all' && c.fund_display !== filters.fund)            return false;
-        if (filters.sector   !== 'all' && c.sector       !== filters.sector)           return false;
+        if (filters.sector   !== 'all' && !getSectors(c).includes(filters.sector))    return false;
         if (filters.location !== 'all' && c.location     !== filters.location)         return false;
         if (filters.status   !== 'all' && c.status       !== filters.status)           return false;
         if (filters.year     !== 'all' && (!c.date || c.date.slice(0,4) !== filters.year)) return false;
         if (searchQ) {
           const q = searchQ.toLowerCase();
-          if (![c.display_name, c.founders, c.desc, c.sector].join(' ').toLowerCase().includes(q)) return false;
+          if (![c.display_name, c.founders, c.desc, ...getSectors(c)].join(' ').toLowerCase().includes(q)) return false;
         }
         return true;
       })
@@ -45,11 +48,12 @@
     const nameOrLogo = c.logo
       ? `<img src="${c.logo}" alt="${c.display_name}" class="co-logo">`
       : `<div class="co-card-name">${c.display_name}</div>`;
+    const sectorBadges = getSectors(c).map(s => `<span class="badge ${sectorClass(s)}">${s}</span>`).join('');
     const cardContent = `
       <div class="co-card-top">
         ${nameOrLogo}
         <div class="co-badges">
-          <span class="badge ${sectorClass(c.sector)}">${c.sector}</span>
+          ${sectorBadges}
           <span class="badge fund-badge">${c.fund_display}</span>
         </div>
       </div>

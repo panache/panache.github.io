@@ -312,7 +312,7 @@ window.PORTFOLIO = [
     "fund_display": "Fund I",
     "location": "Canada",
     "display_name": "ALT TEX",
-    "logo": "assets/images/logos/alttex.png"
+    //"logo": "assets/images/logos/alttex.png"
   },
   {
     "fund": "Fund I",
@@ -351,7 +351,7 @@ window.PORTFOLIO = [
     "fund_display": "Fund I",
     "location": "Canada",
     "display_name": "Equator Studios",
-    "logo": "assets/images/logos/equator.png"
+    //"logo": "assets/images/logos/equator.png"
   },
   {
     "fund": "Fund I",
@@ -410,7 +410,7 @@ window.PORTFOLIO = [
     "fund_display": "Fund I",
     "location": "Canada",
     "display_name": "Fly Ribbit",
-    "logo": "assets/images/logos/ribbit.png"
+    //"logo": "assets/images/logos/ribbit.png"
   },
   {
     "fund": "Fund I",
@@ -469,7 +469,7 @@ window.PORTFOLIO = [
     "fund_display": "Fund I",
     "location": "Canada",
     "display_name": "Agilicus",
-    "logo": "assets/images/logos/agilicus.png"
+    //"logo": "assets/images/logos/agilicus.png"
   },
   {
     "fund": "Fund I",
@@ -547,7 +547,7 @@ window.PORTFOLIO = [
     "fund_display": "Rolling / Bridge",
     "location": "Canada",
     "display_name": "Lending Loop",
-    "logo": "assets/images/logos/loop.png"
+    //"logo": "assets/images/logos/loop.png"
   },
   {
     "fund": "Rolling",
@@ -627,7 +627,7 @@ window.PORTFOLIO = [
     "fund_display": "Rolling / Bridge",
     "location": "United States",
     "display_name": "Stabl",
-    "logo": "assets/images/logos/stabl.png"
+    //"logo": "assets/images/logos/stabl.png"
   },
   {
     "fund": "Rolling",
@@ -725,7 +725,7 @@ window.PORTFOLIO = [
     "fund_display": "Fund I",
     "location": "Canada",
     "display_name": "Hyivy Health",
-    "logo": "assets/images/logos/hyivy.png"
+    //"logo": "assets/images/logos/hyivy.png"
   },
   {
     "fund": "Fund I",
@@ -763,7 +763,7 @@ window.PORTFOLIO = [
     "fund_display": "Fund I",
     "location": "Canada",
     "display_name": "Pronti AI",
-    "logo": "assets/images/logos/pronti.png"
+    //"logo": "assets/images/logos/pronti.png"
   },
   {
     "fund": "Rolling",
@@ -1093,7 +1093,7 @@ window.PORTFOLIO = [
     "fund_display": "Fund I",
     "location": "Canada",
     "display_name": "Scispot.io",
-    "logo": "assets/images/logos/scispot.png"
+    //"logo": "assets/images/logos/scispot.png"
   },
   {
     "fund": "Fund II",
@@ -1134,22 +1134,22 @@ window.PORTFOLIO = [
   },
   {
     "fund": "Rolling",
-    "name": "Respawned",
+    "name": "Poppy",
     "date": "2023-07-10",
     "invested": 15000.0,
     "fair_value": 15000.0,
     "distributed": 0.0,
-    "desc": "Using AI to preserve and structure corporate knowledge and data.",
+    "desc": "A screen-free Wi-Fi device that helps children connect with loved ones while keeping parents in the loop.",
     "founders": "Jay Shah, Aaron Kemp",
     "round": "Pre-Seed",
-    "website": "https://www.respawned.ai",
+    "website": "https://talkpoppy.com/",
     "country": "CA",
-    "sector": "AI/ML",
+    "sector": "AI/ML, Consumer, Hardware",
     "status": "Active",
     "fund_display": "Rolling / Bridge",
     "location": "Canada",
-    "display_name": "Respawned",
-    "logo": "assets/images/logos/respawned.png"
+    "display_name": "Poppy",
+    //"logo": "assets/images/logos/poppy.png"
   },
   {
     "fund": "Fund I",
@@ -1216,7 +1216,7 @@ window.PORTFOLIO = [
     "desc": "Helps researchers understand academic papers faster.",
     "founders": "Saeejith Nair",
     "round": "Pre-Seed",
-    "website": "",
+    "website": "https://papiers.ai/",
     "country": "CA",
     "sector": "AI/ML",
     "status": "Active",
@@ -1241,7 +1241,7 @@ window.PORTFOLIO = [
     "fund_display": "Fund I",
     "location": "United States",
     "display_name": "Drifting in Space",
-    "logo": "assets/images/logos/drifting-in.png"
+    //"logo": "assets/images/logos/drifting-in.png"
   },
   {
     "fund": "Fund I",
