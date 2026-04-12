@@ -35,7 +35,8 @@ window.PORTFOLIO = [
     "status": "Active",
     "fund_display": "Fund II",
     "location": "Canada",
-    "display_name": "Clockwork"
+    "display_name": "Clockwork",
+    "logo": "assets/images/logos/clockwork.png"
   },
   {
     "fund": "Fund II",
