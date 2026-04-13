@@ -259,6 +259,7 @@ footer a:hover { color: var(--yellow); }
 }
 .portfolio-card:hover .co-logo,
 .co-card:hover .co-logo { opacity: 1; }
+.co-logo[alt="Ground News"] { filter: brightness(0) invert(1); }
 
 /* RESPONSIVE */
 @media (max-width: 900px) {
