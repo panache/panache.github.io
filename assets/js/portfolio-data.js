@@ -16,7 +16,8 @@ window.PORTFOLIO = [
     "status": "Active",
     "fund_display": "Fund II",
     "location": "Canada",
-    "display_name": "Versos AI"
+    "display_name": "Versos AI",
+    "logo": "assets/images/logos/versos.svg"
   },
   {
     "fund": "Fund II",
