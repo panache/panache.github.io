@@ -1,0 +1,63 @@
+# Velocity Fund
+
+> Canada's pre-seed fund for founders who move fast. First cheque. Two-week decision. No circus.
+
+Velocity Fund backs pre-seed technical founders from the University of Waterloo and beyond. Founded by Akash Vaswani and Ross Robinson — two UW alumni who built companies at Velocity Incubator before starting the fund they wished had existed when they were founders.
+
+## Fund
+
+- Stage: Pre-seed
+- Scout cheques: $25K
+- Core cheques: $150K–$1M
+- Ownership: 5–7.5%
+- Decision timeline: Term sheet or clear no within 2 weeks of first meeting, guaranteed
+- Fund status: Fund II open; Fund I top decile performance (Carta Q1 2025)
+- LPs include: UW Endowment, Graphite Ventures
+- CVCA 2025: Second most active pre-seed fund in Canada
+
+## Team
+
+### Akash Vaswani — General Partner
+- UW Mechatronics Engineering
+- MS Machine Learning, Columbia University
+- Founded two companies at Velocity Incubator
+- Machine learning lead at Palantir
+- Founded Alicorn Ventures (pre-seed fund, merged with Velocity Fund in 2022)
+- Contact: akash@velocity.fund
+
+### Ross Robinson — General Partner
+- UW Computer Science
+- Founded Tinker (YC S14) — crypto market maker that handled 90% of Canadian Bitcoin trading volume at peak
+- Application reviewer at Y Combinator, screened 12,000+ companies
+- Interim Director, Velocity Incubator
+- Contact: ross@velocity.fund
+
+## Investment Thesis
+
+Velocity Fund focuses on two profiles:
+
+1. **Waterloo founders (~70% of portfolio)** — The University of Waterloo produces 1 in 4 Canadian unicorn founders and 18% of all Canadian founders. Velocity Fund is physically embedded at Velocity Incubator and backed by the UW Endowment. The team sees every company before there is a deck or a round.
+
+2. **Technical teams with early signal (~30% of portfolio)** — Technical founders with early customer traction and a differentiated insight, regardless of geography or school.
+
+## Portfolio highlights (74+ companies across 5 vintages)
+
+- **Scribenote** — AI scribe for veterinarians. Pre-seed led by Velocity Fund, seed led by a16z.
+- **Ground News** — News bias detection platform. 800K+ subscribers, 62.5× ARR growth in 4 years. Velocity Fund is their only VC investor.
+- **MedMe Health** — OS for pharmacies. YC W21. Seed co-led by Microsoft and Graphite Ventures. 4,000+ pharmacies, 25M+ patient services.
+- **Phoenix** — Canadian telehealth clinic. $50M Series A led by Valspring Capital.
+- **Page.** — AI platform for government relations. 7-figure ARR in 7 months. Seed from TwelveBelow.
+- **Float** — Corporate finance platform. $30M Series A.
+- **ApplyBoard** — International student recruitment platform. $3.2B Series D.
+
+## Pages
+
+- Homepage: https://velocity.fund
+- Portfolio: https://velocity.fund/portfolio
+- How We Help: https://velocity.fund/how-we-help.html
+- Team: https://velocity.fund/team.html
+
+## Contact
+
+- General: hello@velocity.fund
+- Apply: https://velocity.fund (Apply button)
