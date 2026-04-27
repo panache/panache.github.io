@@ -956,7 +956,7 @@ window.PORTFOLIO = [
     "fair_value": 25000.0,
     "distributed": 0.0,
     "desc": "AI-enabled sales networking, founded by ex-ApplyBoard CFO.",
-    "founders": "Joshua Brant Zucker",
+    "founders": "Josh Zucker",
     "round": "Pre-Seed",
     "website": "",
     "country": "CA",
@@ -964,7 +964,8 @@ window.PORTFOLIO = [
     "status": "Active",
     "fund_display": "Fund II",
     "location": "Canada",
-    "display_name": "One of One"
+    "display_name": "One of One",
+    "logo": "assets/images/logos/oneofone.png"
   },
   {
     "fund": "Rolling",
